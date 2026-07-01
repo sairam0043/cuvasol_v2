@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: cuvasol-v2
+    runtime: node
+    plan: free
+    buildCommand: npm install --prefix backend && npm install --prefix frontend && npm run build
+    startCommand: node backend/dist/app.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+        description: "MongoDB connection string (optional - if left empty, the app will run with the in-memory mock database)"
