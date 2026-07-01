@@ -1,7 +1,7 @@
 services:
   - type: web
     name: cuvasol-v2
-    runtime: node
+    env: node
     plan: free
     buildCommand: npm install --prefix backend && npm install --prefix frontend && npm run build
     startCommand: node backend/dist/app.js
