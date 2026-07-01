@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-heading: "Outfit", system-ui, sans-serif;
+
+  /* Accent Neon Brand Colors mapped to dynamic theme CSS variables */
+  --color-brand-primary: var(--primary);
+  --color-brand-secondary: var(--secondary);
+  --color-brand-accent: var(--accent);
+
+  /* Map standard color helper states to dynamic theme CSS variables */
+  --color-zinc-950: var(--bg-main);
+  --color-zinc-900: var(--bg-card);
+  --color-zinc-850: var(--bg-card);
+  --color-zinc-800: var(--border-color);
+  --color-zinc-700: var(--border-color);
+  --color-zinc-650: var(--text-muted);
+  --color-zinc-600: var(--text-muted);
+  --color-zinc-550: var(--text-muted);
+  --color-zinc-500: var(--text-muted);
+  --color-zinc-450: var(--text-muted);
+  --color-zinc-400: var(--text-main);
+  --color-zinc-350: var(--text-main);
+  --color-zinc-300: var(--text-main);
+  --color-zinc-200: var(--text-main);
+  --color-zinc-100: var(--text-main);
+  
+  --color-white: var(--text-main);
+  
+  /* Increase container max width to reduce left and right emptiness on widescreen displays */
+  --max-w-7xl: 1440px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Adaptive Grid Pattern */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, var(--border-color) 0.5px, transparent 0.5px),
+                    linear-gradient(to bottom, var(--border-color) 0.5px, transparent 0.5px);
+}
+
+/* Glassmorphism */
+.glassmorphism {
+  background: var(--bg-card);
+  opacity: 0.95;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+}
+
+.glassmorphism-light {
+  background: var(--bg-card);
+  opacity: 0.85;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+}
+
+/* Soft typography gradients */
+.text-gradient-primary {
+  background: linear-gradient(135deg, var(--text-main) 30%, var(--text-muted) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-neon {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+::selection {
+  background-color: var(--primary);
+  color: var(--text-main);
+}
+
+
+/* ==========================================================================
+   MASTER LEVEL 3D DESIGN SYSTEM & PERSPECTIVE STYLES
+   ========================================================================== */
+
+/* 3D Perspective Context Base */
+.perspective-container-3d {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* volumetric deep ambient shadow */
+.shadow-3d-rich {
+  box-shadow: 
+    0 15px 35px -5px rgba(0, 0, 0, 0.05),
+    0 5px 15px -3px rgba(0, 0, 0, 0.03),
+    0 30px 60px -15px rgba(99, 102, 241, 0.03);
+  transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shadow-3d-rich:hover {
+  box-shadow: 
+    0 30px 60px -10px rgba(0, 0, 0, 0.08),
+    0 10px 25px -5px rgba(0, 0, 0, 0.05),
+    0 40px 80px -10px rgba(99, 102, 241, 0.08);
+}
+
+/* 3D Tilt Card Component */
+.tilt-card-3d {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+}
+
+.tilt-card-3d:hover {
+  transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateZ(15px);
+  border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Float inner element out of card on hover */
+.tilt-inner-float {
+  transform: translateZ(0px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tilt-card-3d:hover .tilt-inner-float {
+  transform: translateZ(30px) scale(1.05);
+}
+
+/* Isometric 3D Screen Projection */
+.isometric-screen-3d {
+  transform: perspective(1500px) rotateX(16deg) rotateY(-18deg) rotateZ(6deg) translateZ(0px);
+  transform-style: preserve-3d;
+  box-shadow: 
+    -20px 20px 40px -10px rgba(0, 0, 0, 0.06),
+    -10px 10px 20px -5px rgba(0, 0, 0, 0.04),
+    -40px 40px 80px -20px rgba(99, 102, 241, 0.05);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s;
+}
+
+.isometric-screen-3d:hover {
+  transform: perspective(1500px) rotateX(12deg) rotateY(-14deg) rotateZ(4deg) translateZ(20px);
+  box-shadow: 
+    -35px 35px 60px -10px rgba(0, 0, 0, 0.1),
+    -15px 15px 30px -5px rgba(0, 0, 0, 0.06),
+    -60px 60px 120px -20px rgba(99, 102, 241, 0.1);
+}
+
+/* Floating 3D Blob Animation */
+.blob-float-3d-1 {
+  animation: float-3d-1 12s ease-in-out infinite;
+}
+
+.blob-float-3d-2 {
+  animation: float-3d-2 15s ease-in-out infinite;
+}
+
+@keyframes float-3d-1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-25px) rotate(180deg) scale(1.08);
+  }
+}
+
+@keyframes float-3d-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(20px, -30px) rotate(-180deg) scale(0.92);
+  }
+}
+
+/* Zero-gravity float animation for 3D screens */
+.float-gravity-3d {
+  animation: gravity-float 8s ease-in-out infinite;
+}
+
+@keyframes gravity-float {
+  0%, 100% {
+    transform: perspective(1500px) rotateX(16deg) rotateY(-18deg) rotateZ(6deg) translateY(0px) translateZ(0px);
+  }
+  50% {
+    transform: perspective(1500px) rotateX(18deg) rotateY(-15deg) rotateZ(5deg) translateY(-15px) translateZ(20px);
+  }
+}
+
+/* Floating Drift Animations for background icons (Accelerated & Multi-directional) */
+.animate-float-slow {
+  animation: float-drift-slow 10s ease-in-out infinite;
+}
+.animate-float-medium {
+  animation: float-drift-medium 7s ease-in-out infinite;
+}
+.animate-float-fast {
+  animation: float-drift-fast 5s ease-in-out infinite;
+}
+
+@keyframes float-drift-slow {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(25px, -35px) rotate(45deg) scale(1.05);
+  }
+}
+@keyframes float-drift-medium {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-30px, -20px) rotate(-35deg) scale(0.95);
+  }
+}
+@keyframes float-drift-fast {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(20px, -15px) rotate(25deg) scale(1.02);
+  }
+}
