@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { connectDB } from './config/db.js';
 import { errorHandler } from './middleware/error.js';
 
@@ -24,6 +26,9 @@ dotenv.config();
 
 const app = express();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Middleware
 app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:3000', credentials: true }));
 app.use(express.json());
@@ -41,10 +46,23 @@ app.use('/api/v1/applications', applicationRoutes);
 app.use('/api/v1/testimonials', testimonialRoutes);
 app.use('/api/v1/analytics', analyticsRoutes);
 
-// Root Route
-app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to Cuvasol API Service v1' });
-});
+// Serve Static Assets in Production
+if (process.env.NODE_ENV === 'production') {
+  const frontendDistPath = path.join(__dirname, '../../frontend/dist');
+  app.use(express.static(frontendDistPath));
+
+  app.get('*', (req, res) => {
+    if (req.path.startsWith('/api')) {
+      return res.status(404).json({ error: 'API endpoint not found' });
+    }
+    res.sendFile(path.join(frontendDistPath, 'index.html'));
+  });
+} else {
+  // Root Route
+  app.get('/', (req, res) => {
+    res.json({ message: 'Welcome to Cuvasol API Service v1' });
+  });
+}
 
 // Error Handler Middleware
 app.use(errorHandler);
