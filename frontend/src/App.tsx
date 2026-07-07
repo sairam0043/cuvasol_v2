@@ -17,6 +17,8 @@ import { FAQ } from './pages/FAQ.js';
 import { Contact } from './pages/Contact.js';
 import { Login } from './pages/Login.js';
 import { Register } from './pages/Register.js';
+import { Privacy } from './pages/Privacy.js';
+import { Terms } from './pages/Terms.js';
 import { StudentDashboard } from './pages/StudentDashboard.js';
 import { AdminDashboard } from './pages/AdminDashboard.js';
 import { RefreshCw } from 'lucide-react';
@@ -74,6 +76,8 @@ export const App: React.FC = () => {
             <Route path="/contact" element={<DefaultLayout><Contact /></DefaultLayout>} />
             <Route path="/login" element={<DefaultLayout><Login /></DefaultLayout>} />
             <Route path="/register" element={<DefaultLayout><Register /></DefaultLayout>} />
+            <Route path="/privacy" element={<DefaultLayout><Privacy /></DefaultLayout>} />
+            <Route path="/terms" element={<DefaultLayout><Terms /></DefaultLayout>} />
 
             {/* Secured Student Dashboard Route */}
             <Route 

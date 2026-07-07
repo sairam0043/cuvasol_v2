@@ -62,25 +62,25 @@ export const Home: React.FC = () => {
         // Fallback mock testimonials
         setTestimonials([
           {
-            name: 'Sarah Jenkins',
-            role: 'Software Engineer',
-            company: 'Stripe',
-            text: "Cuvasol's AI Interview simulations gave me the exact prep I needed to land my dream job at Stripe. The real-time feedback was incredibly detailed.",
-            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah&backgroundColor=indigo'
+            name: 'Kaushik Narayan',
+            role: 'Incoming Ivy college fresher',
+            company: 'Ivy League',
+            text: 'This is the best kept secret on the internet. Glad I found the Cuvasol app that helped to improve my test preparation for college admission and provided me direction to get accepted to my dream college.',
+            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Kaushik&backgroundColor=indigo'
           },
           {
-            name: 'David Chen',
-            role: 'Product Engineer',
-            company: 'Vercel',
-            text: 'The experiential learning modules on Cuvasol are unmatched. It feels like you are actually working on real production codebases from day one.',
-            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=David&backgroundColor=cyan'
+            name: 'Gauri Katti',
+            role: 'Consultant',
+            company: 'MNC',
+            text: "I was feeling nervous since hadn't received offers after applying to so many companies. Metaverse game app made it fun to prepare for interviews, practice, and the feedback loop allowed me to ace the interview and receive multiple offers!",
+            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Gauri&backgroundColor=cyan'
           },
           {
-            name: 'Elena Rostova',
-            role: 'HR Director',
-            company: 'Linear',
-            text: 'We source our best junior engineering talent from Cuvasol. They come in job-ready, with practical simulated project experience.',
-            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Elena&backgroundColor=purple'
+            name: 'Lakhan Singh',
+            role: 'Future Data scientist',
+            company: 'Tech Academy',
+            text: 'After research and guidance, I found the courses in Machine learning that were even better than my state college. Do yourself a favor and change your life with this free app that will help find a good college fit.',
+            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Lakhan&backgroundColor=purple'
           }
         ]);
       });
@@ -205,10 +205,9 @@ export const Home: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-zinc-500 text-sm sm:text-base leading-relaxed max-w-xl"
+              className="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-xl font-medium"
             >
-              Preserving Cuvasol's trusted business foundation with a premium SaaS infrastructure. 
-              Accelerate your engineering skills with real-time sandbox simulations and direct talent matching.
+              Mentor + Machines = Your Career Breakthrough.
             </motion.p>
 
             <motion.div
@@ -218,17 +217,11 @@ export const Home: React.FC = () => {
               className="flex flex-col sm:flex-row items-center gap-4"
             >
               <Link
-                to="/programs"
-                className="w-full sm:w-auto flex items-center justify-center space-x-2 px-8 py-3.5 rounded-2xl bg-brand-primary hover:opacity-90 text-white font-medium shadow-xl shadow-brand-primary/20 transition-all cursor-pointer group"
+                to="/register"
+                className="w-full sm:w-auto flex items-center justify-center space-x-2 px-8 py-3.5 rounded-2xl bg-brand-primary hover:opacity-90 text-white font-semibold shadow-xl shadow-brand-primary/20 transition-all cursor-pointer group"
               >
-                <span>Explore Programs</span>
+                <span>Signup</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                to="/ai-interview"
-                className="w-full sm:w-auto flex items-center justify-center space-x-2 px-8 py-3.5 rounded-2xl bg-zinc-900 border border-zinc-800 hover:bg-zinc-800/80 text-zinc-350 font-medium transition-all cursor-pointer"
-              >
-                <span>Try Interview Coach</span>
               </Link>
             </motion.div>
           </div>
@@ -376,11 +369,11 @@ export const Home: React.FC = () => {
                 <span className="text-gradient-neon">Dreams That turned into Offers!</span>
               </h2>
               <p className="text-zinc-400 text-sm leading-relaxed max-w-sm">
-                Few of the companies that hired our Students. Get started now to explore interactive learning roadmaps.
+                Few of the companies that hired our Students.
               </p>
             </div>
             <Link
-              to="/register"
+              to="/experiential"
               className="flex items-center justify-center space-x-2 px-8 py-3.5 rounded-2xl bg-brand-primary hover:opacity-90 text-white font-semibold shadow-xl shadow-brand-primary/10 transition-all cursor-pointer group"
             >
               <span>START</span>
@@ -390,24 +383,85 @@ export const Home: React.FC = () => {
         </div>
       </Section3D>
 
+      {/* TUTOR FINDER SECTION */}
+      <Section3D className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-zinc-900/10 border border-zinc-800 p-8 md:p-12 rounded-3xl glassmorphism relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-brand-secondary/5 rounded-full blur-[100px] pointer-events-none" />
+          
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 relative z-10">
+            <span className="inline-flex px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider animate-pulse-slow">
+              Personalized Mentorship
+            </span>
+            <h2 className="text-3xl font-bold font-heading text-white tracking-tight leading-tight">
+              Find the Perfect Tutor!
+            </h2>
+            <p className="text-zinc-400 text-sm leading-relaxed max-w-sm">
+              Find expert tutors in academics, music, art, and more. Book a demo, schedule classes, and start your personalized learning journey today.
+            </p>
+            <a
+              href="https://tutor.cuvasol.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center space-x-2 px-8 py-3.5 rounded-2xl bg-brand-secondary hover:opacity-90 text-zinc-955 font-semibold shadow-xl shadow-brand-secondary/10 transition-all cursor-pointer group"
+            >
+              <span>Become a tutor</span>
+              <ArrowRight className="h-4.5 w-4.5 group-hover:translate-x-1 transition-transform text-zinc-955" />
+            </a>
+          </div>
+
+          <div className="lg:col-span-7 flex justify-center items-center relative z-10 w-full">
+            <div className="bg-zinc-950 border border-zinc-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden text-zinc-400 max-w-md w-full font-sans text-xs">
+              <div className="flex justify-between items-center pb-3 border-b border-zinc-900 mb-4">
+                <span className="font-semibold text-white">Tutor Profiles Hub</span>
+                <span className="text-[9px] text-cyan-400 font-bold bg-cyan-500/10 px-2 py-0.5 rounded">ACTIVE DEMOS</span>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between p-3 bg-zinc-900/60 rounded-xl border border-zinc-800/80">
+                  <div className="flex items-center space-x-2.5">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=tutor1" className="h-9 w-9 rounded-full bg-zinc-850" alt="Tutor" />
+                    <div>
+                      <h4 className="font-semibold text-white">Dr. Sarah L.</h4>
+                      <p className="text-[10px] text-zinc-500">Advanced Mathematics</p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-bold text-brand-primary">★ 4.9</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-zinc-900/60 rounded-xl border border-zinc-800/80">
+                  <div className="flex items-center space-x-2.5">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=tutor2" className="h-9 w-9 rounded-full bg-zinc-850" alt="Tutor" />
+                    <div>
+                      <h4 className="font-semibold text-white">Marcus Vance</h4>
+                      <p className="text-[10px] text-zinc-500">Classical Piano & Music</p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-bold text-brand-primary">★ 5.0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section3D>
+
       {/* 3. STATISTICS COUNTERS */}
       <Section3D className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 bg-zinc-950/20 p-8 rounded-3xl border border-zinc-800 glassmorphism-light">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 bg-zinc-950/20 p-8 rounded-3xl border border-zinc-800 glassmorphism-light">
           <div className="text-center space-y-1">
-            <h4 className="text-3xl sm:text-4xl text-white font-heading"><StatsCounter value={98} suffix="%" /></h4>
-            <p className="text-xs text-zinc-550 font-medium">Placement Ratio</p>
+            <h4 className="text-3xl sm:text-4xl text-white font-heading">
+              <StatsCounter value={0.3} prefix="+" suffix="L" decimals={1} />
+            </h4>
+            <p className="text-xs text-zinc-550 font-medium">Interviews</p>
           </div>
           <div className="text-center space-y-1">
-            <h4 className="text-3xl sm:text-4xl text-white font-heading"><StatsCounter value={25} suffix="k+" /></h4>
-            <p className="text-xs text-zinc-550 font-medium">Enrolled Students</p>
+            <h4 className="text-3xl sm:text-4xl text-white font-heading">
+              <StatsCounter value={3} prefix="+" decimals={0} />
+            </h4>
+            <p className="text-xs text-zinc-550 font-medium">Continents</p>
           </div>
           <div className="text-center space-y-1">
-            <h4 className="text-3xl sm:text-4xl text-white font-heading"><StatsCounter value={120} suffix="+" /></h4>
-            <p className="text-xs text-zinc-550 font-medium">Partner Companies</p>
-          </div>
-          <div className="text-center space-y-1">
-            <h4 className="text-3xl sm:text-4xl text-white font-heading"><StatsCounter value={4} suffix=".9/5" /></h4>
-            <p className="text-xs text-zinc-550 font-medium">Review Rating</p>
+            <h4 className="text-3xl sm:text-4xl text-white font-heading">
+              <StatsCounter value={6436} prefix="+" decimals={0} />
+            </h4>
+            <p className="text-xs text-zinc-550 font-medium">International Educational Institutes</p>
           </div>
         </div>
       </Section3D>
@@ -695,6 +749,44 @@ export const Home: React.FC = () => {
         </div>
         <div className="max-w-3xl mx-auto">
           <Accordion items={faqs} />
+        </div>
+      </Section3D>
+
+      {/* APP DOWNLOAD SECTION */}
+      <Section3D className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-zinc-950/20 p-8 md:p-12 rounded-3xl border border-zinc-800 glassmorphism relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-80 h-80 bg-brand-primary/5 rounded-full blur-[100px] pointer-events-none" />
+          
+          <div className="lg:col-span-7 space-y-6 relative z-10 text-left">
+            <span className="inline-flex px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs font-semibold uppercase tracking-wider animate-pulse-slow">
+              Free Access
+            </span>
+            <h2 className="text-3xl font-bold font-heading text-white tracking-tight leading-tight">
+              Download our App for Free!
+            </h2>
+            <p className="text-zinc-400 text-sm leading-relaxed max-w-xl">
+              Download cuvasol now for a transformative learning experience. Elevate communication, ace interviews, and access exclusive features. Available on Google play store and the Apple App store.
+            </p>
+          </div>
+
+          <div className="lg:col-span-5 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10 w-full">
+            <a 
+              href="https://apps.apple.com/us/app/cuvasol-pro/id6448352595" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-850 text-white font-medium transition-all shadow-lg cursor-pointer"
+            >
+              <span className="text-xs font-semibold">Download on App Store</span>
+            </a>
+            <a 
+              href="https://play.google.com/store/apps/details?id=com.cuvasol.newcandidateapp" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-850 text-white font-medium transition-all shadow-lg cursor-pointer"
+            >
+              <span className="text-xs font-semibold">Get it on Google Play</span>
+            </a>
+          </div>
         </div>
       </Section3D>
 

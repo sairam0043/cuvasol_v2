@@ -5,13 +5,15 @@ interface StatsCounterProps {
   duration?: number;
   suffix?: string;
   prefix?: string;
+  decimals?: number;
 }
 
 export const StatsCounter: React.FC<StatsCounterProps> = ({ 
   value, 
   duration = 2000, 
   suffix = '', 
-  prefix = '' 
+  prefix = '',
+  decimals
 }) => {
   const [count, setCount] = useState(0);
   const observerRef = useRef<HTMLSpanElement | null>(null);
@@ -46,7 +48,7 @@ export const StatsCounter: React.FC<StatsCounterProps> = ({
       const progress = frame / totalFrames;
       
       // Ease out quad
-      const currentCount = Math.round(end * (progress * (2 - progress)));
+      const currentCount = end * (progress * (2 - progress));
       
       if (frame >= totalFrames) {
         setCount(end);
@@ -61,13 +63,14 @@ export const StatsCounter: React.FC<StatsCounterProps> = ({
 
   // Format numbers (e.g. 1000 -> 1k)
   const formatNumber = (num: number) => {
+    const dec = decimals !== undefined ? decimals : (value % 1 === 0 ? 0 : 1);
     if (num >= 1000000) {
-      return (num / 1000000).toFixed(1) + 'M';
+      return (num / 1000000).toFixed(dec) + 'M';
     }
     if (num >= 1000) {
-      return (num / 1000).toFixed(0) + 'k';
+      return (num / 1000).toFixed(dec) + 'k';
     }
-    return num.toString();
+    return num.toFixed(dec);
   };
 
   return (

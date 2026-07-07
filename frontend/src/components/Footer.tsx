@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, Send, Twitter, Linkedin, Github } from 'lucide-react';
+import { Brain, Send, Twitter, Linkedin, Github, Facebook } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -38,14 +38,23 @@ export const Footer: React.FC = () => {
             </p>
             {/* Social Links */}
             <div className="flex items-center space-x-4">
-              <a href="#" className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-indigo-400 hover:border-indigo-500/20 transition-all">
-                <Twitter className="h-4 w-4" />
+              <a 
+                href="https://facebook.com/CuvasolTechnologies" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-indigo-400 hover:border-indigo-500/20 transition-all"
+                title="Facebook"
+              >
+                <Facebook className="h-4 w-4" />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-indigo-400 hover:border-indigo-500/20 transition-all">
+              <a 
+                href="https://www.linkedin.com/company/cuvasol-technologies-private-limited/about/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-indigo-400 hover:border-indigo-500/20 transition-all"
+                title="LinkedIn"
+              >
                 <Linkedin className="h-4 w-4" />
-              </a>
-              <a href="#" className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-indigo-400 hover:border-indigo-500/20 transition-all">
-                <Github className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -124,11 +133,10 @@ export const Footer: React.FC = () => {
 
         {/* Footer Bottom info */}
         <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 text-xs text-zinc-500">
-          <p>© {new Date().getFullYear()} Cuvasol Redesign Project. All rights reserved.</p>
+          <p>© 2025 Cuvasol Technologies, Pvt Ltd. All rights reserved.</p>
           <div className="flex space-x-6">
-            <a href="#" className="hover:text-zinc-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-zinc-300 transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-zinc-300 transition-colors">Cookie Settings</a>
+            <Link to="/privacy" className="hover:text-zinc-300 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-zinc-300 transition-colors">Terms and Conditions</Link>
           </div>
         </div>
       </div>
